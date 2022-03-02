@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CRUD_Firebase</string>
+    <string name="hint_nim">NIM</string>
+    <string name="hint_jurusan">Jurusan</string>
+    <string name="btn_login">Log In</string>
+    <string name="btn_logout">Log Out</string>
+    <string name="btn_lihat_data">Lihat Data</string>
+    <string name="hint_nama">Nama</string>
+    <string name="btn_save">Simpan</string>
+</resources>
