@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "203990085542",
+    "firebase_url": "https://crud-firebase-c8649-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "crud-firebase-c8649",
     "storage_bucket": "crud-firebase-c8649.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "203990085542-fat1vv3t4n33uq63r2m0bess0j34lcnt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shinta.crud_firebase",
+            "certificate_hash": "44bddb4bf8bcba2a6ef492348d635a300acce8b1"
+          }
+        },
         {
           "client_id": "203990085542-ueeglnq46hk6st5ijbbnp0j1afvaqqb0.apps.googleusercontent.com",
           "client_type": 3

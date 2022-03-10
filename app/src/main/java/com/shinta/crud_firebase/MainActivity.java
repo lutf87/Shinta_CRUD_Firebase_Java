@@ -15,8 +15,11 @@ import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.shinta.crud_firebase.databinding.ActivityMainBinding;
 
 import java.util.Collections;
@@ -119,6 +122,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_simpan:
                 //follow in the next step
+                String getUserID = auth.getCurrentUser().getUid();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference getReference;
+
+                String getNim = NIM.getText().toString();
+                String getNama = Nama.getText().toString();
+                String getJurusan = Jurusan.getText().toString();
+
+                getReference = database.getReference();
+
+                if (isEmpty(getNim) && isEmpty(getNama) && isEmpty(getJurusan)) {
+                    Toast.makeText(MainActivity.this, "Data tidak boleh kosong!",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    getReference.child("Admin").child(getUserID).child("Mahasiswa").push()
+                            .setValue(new data_mahasiswa(getNim, getNama, getJurusan))
+                            .addOnSuccessListener(this, new OnSuccessListener() {
+                                @Override
+                                public void onSuccess(Object o) {
+                                    NIM.setText("");
+                                    Nama.setText("");
+                                    Jurusan.setText("");
+                                    Toast.makeText(MainActivity.this, "Data Tersimpan",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+
                 break;
             case R.id.btn_logout:
                 AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
